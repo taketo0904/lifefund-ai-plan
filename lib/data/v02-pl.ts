@@ -1,20 +1,20 @@
-// §9 PL 3シナリオ
+// PL & KPIシナリオ（建築AI経営研究会 アップセル戦略）
 export type PLScenario = {
   name: "Best" | "Target" | "Worst";
-  jukunin: number; // 万円
-  referral: number;
-  crosssell: number;
+  jukunin: number; // 万円（Tier 2 + Tier 3 累計）
+  referral: number; // 万円（Tier 4 M&A 成功報酬）
+  crosssell: number; // 万円（Tier 1 + スポット）
   total: number;
   color: string;
 };
 
 export const plScenarios: PLScenario[] = [
-  { name: "Best", jukunin: 25000, referral: 12000, crosssell: 3000, total: 40000, color: "#10b981" },
-  { name: "Target", jukunin: 20000, referral: 8000, crosssell: 2000, total: 30000, color: "#E05B03" },
-  { name: "Worst", jukunin: 10000, referral: 3000, crosssell: 0, total: 13000, color: "#9ca3af" },
+  { name: "Best", jukunin: 8000, referral: 5000, crosssell: 4000, total: 17000, color: "#10b981" },
+  { name: "Target", jukunin: 5000, referral: 2000, crosssell: 2500, total: 9500, color: "#E05B03" },
+  { name: "Worst", jukunin: 2400, referral: 0, crosssell: 1500, total: 3900, color: "#9ca3af" },
 ];
 
-// §9.2 Targetシナリオのコスト構造
+// Targetシナリオのコスト構造
 export type CostItem = {
   name: string;
   monthly: number; // 万円
@@ -24,50 +24,49 @@ export type CostItem = {
 };
 
 export const costStructure: CostItem[] = [
-  { name: "中川人件費", monthly: 80, annual: 960, type: "fixed", note: "事業推進・PM" },
-  { name: "北さん人件費", monthly: 50, annual: 600, type: "fixed", note: "CS・商談担当" },
-  { name: "業務委託（選考・スカウト）", monthly: 30, annual: 360, type: "fixed" },
-  { name: "法務・契約管理", monthly: 15, annual: 180, type: "fixed" },
-  { name: "SaaS（クラウドサイン・freee・Notion・HL送信）", monthly: 15, annual: 180, type: "fixed" },
-  { name: "HL送信・クリエイティブ", monthly: 50, annual: 600, type: "fixed" },
-  { name: "スタートアップDB・ツール購入", monthly: 5, annual: 60, type: "fixed" },
-  { name: "個人情報・セキュリティ", monthly: 5, annual: 60, type: "fixed" },
-  { name: "外部会計・雑費", monthly: 10, annual: 120, type: "fixed" },
+  { name: "白都社長 人件費", monthly: 100, annual: 1200, type: "fixed", note: "代表 / 商談・登壇・PM" },
+  { name: "三山さん 人件費", monthly: 70, annual: 840, type: "fixed", note: "営業・CS・コンサル実装" },
+  { name: "橋本さん 人件費", monthly: 60, annual: 720, type: "fixed", note: "コンテンツ・運営" },
+  { name: "実装メンバー人件費（業務委託）", monthly: 80, annual: 960, type: "variable", note: "Tier 2/3案件に応じ稼働" },
+  { name: "外部講師・登壇者謝礼", monthly: 30, annual: 360, type: "fixed", note: "月例会ゲスト" },
+  { name: "動画コンテンツ制作費", monthly: 25, annual: 300, type: "fixed", note: "月10本の制作・編集" },
+  { name: "SaaS・ツール（Notion・Slack・Zoom等）", monthly: 5, annual: 60, type: "fixed" },
+  { name: "オフィス・会場費", monthly: 15, annual: 180, type: "fixed" },
+  { name: "外部会計・法務・雑費", monthly: 10, annual: 120, type: "fixed" },
 ];
 
-// §9.3 KPI
+// KPI（Targetシナリオ・年商9,500万円ベース）
 export const plKPIs = {
-  revenue: 30000,
-  candidatePay: 13000, // 売上連動65% × 準委任2億
-  grossProfit: 14000, // 1.4億
-  grossMargin: 47,
-  fixedCost: 3120,
-  operatingProfit: 10880, // 約1.1億
-  operatingMargin: 36.3,
-  cacByChannel: { hl: 25, forBiz: 4 }, // 万円/件
-  ltv: { jukunin: 252, referral: 168 }, // 万円
-  ltvCac: 10,
-  paybackMonths: 0.5,
+  revenue: 9500,
+  candidatePay: 800, // 実装メンバー稼働費（売上連動）
+  grossProfit: 6500,
+  grossMargin: 68,
+  fixedCost: 4380,
+  operatingProfit: 2120,
+  operatingMargin: 22.3,
+  cacByChannel: { kenkyukai: 5, network: 8 },
+  ltv: { jukunin: 600, referral: 1500 }, // 万円（Tier 2/3 LTV / M&A成功報酬1件）
+  ltvCac: 6,
+  paybackMonths: 1.5,
 };
 
-// §8 月次推移
+// 月次推移
 export const monthlyProgression = [
-  { month: 1, period: "5月", monthlyRevenue: 0, cumRevenue: 0 },
-  { month: 2, period: "6月", monthlyRevenue: 100, cumRevenue: 100 },
-  { month: 3, period: "7月", monthlyRevenue: 200, cumRevenue: 300 },
-  { month: 4, period: "8月", monthlyRevenue: 500, cumRevenue: 800 },
-  { month: 5, period: "9月", monthlyRevenue: 800, cumRevenue: 1600 },
-  { month: 6, period: "10月", monthlyRevenue: 1400, cumRevenue: 3000 },
-  { month: 7, period: "11月", monthlyRevenue: 2000, cumRevenue: 5000 },
-  { month: 8, period: "12月", monthlyRevenue: 2500, cumRevenue: 7500 },
-  { month: 9, period: "1月", monthlyRevenue: 3000, cumRevenue: 10500 },
-  { month: 10, period: "2月", monthlyRevenue: 3500, cumRevenue: 14000 },
-  { month: 11, period: "3月", monthlyRevenue: 4000, cumRevenue: 18000 },
-  { month: 12, period: "4月", monthlyRevenue: 4500, cumRevenue: 22500 },
-  // 注：3億を達成するには、後半の月次を上昇させるか、12ヶ月延長する想定
+  { month: 1, period: "26/06", monthlyRevenue: 120, cumRevenue: 120 },
+  { month: 2, period: "26/07", monthlyRevenue: 200, cumRevenue: 320 },
+  { month: 3, period: "26/08", monthlyRevenue: 280, cumRevenue: 600 },
+  { month: 4, period: "26/09", monthlyRevenue: 400, cumRevenue: 1000 },
+  { month: 5, period: "26/10", monthlyRevenue: 500, cumRevenue: 1500 },
+  { month: 6, period: "26/11", monthlyRevenue: 700, cumRevenue: 2200 },
+  { month: 7, period: "26/12", monthlyRevenue: 850, cumRevenue: 3050 },
+  { month: 8, period: "27/01", monthlyRevenue: 950, cumRevenue: 4000 },
+  { month: 9, period: "27/02", monthlyRevenue: 1100, cumRevenue: 5100 },
+  { month: 10, period: "27/03", monthlyRevenue: 1300, cumRevenue: 6400 },
+  { month: 11, period: "27/04", monthlyRevenue: 1500, cumRevenue: 7900 },
+  { month: 12, period: "27/05", monthlyRevenue: 1600, cumRevenue: 9500 },
 ];
 
-// §8 KPIファネル目標
+// KPIファネル目標（建築AI研究会 アップセル）
 export type KPIFunnel = {
   stage: string;
   m3: number;
@@ -78,13 +77,13 @@ export type KPIFunnel = {
 };
 
 export const kpiFunnel: KPIFunnel[] = [
-  { stage: "HL送信数（累計）", m3: 5000, m6: 15000, m9: 25000, m12: 30000, unit: "件" },
-  { stage: "HL反応数（累計）", m3: 50, m6: 200, m9: 350, m12: 450, unit: "件" },
-  { stage: "HL商談数（累計）", m3: 15, m6: 60, m9: 105, m12: 135, unit: "件" },
-  { stage: "HL受注数（累計）", m3: 2, m6: 10, m9: 20, m12: 30, unit: "件" },
-  { stage: "for Biz アポ数（累計）", m3: 5, m6: 15, m9: 25, m12: 30, unit: "件" },
-  { stage: "for Biz 受注数（累計）", m3: 1, m6: 4, m9: 6, m12: 8, unit: "件" },
-  { stage: "稼働中コンサル数", m3: 3, m6: 10, m9: 22, m12: 35, unit: "名" },
-  { stage: "月次売上", m3: 200, m6: 1000, m9: 2000, m12: 3000, unit: "万円" },
-  { stage: "累計売上", m3: 300, m6: 3000, m9: 12000, m12: 30000, unit: "万円" },
+  { stage: "認知（コンテンツ視聴・露出）", m3: 5000, m6: 15000, m9: 25000, m12: 40000, unit: "人" },
+  { stage: "個別相談・問い合わせ", m3: 30, m6: 80, m9: 130, m12: 200, unit: "件" },
+  { stage: "Tier 0 研究会員数（累計）", m3: 35, m6: 45, m9: 55, m12: 70, unit: "社" },
+  { stage: "Tier 1 経営者AI武装 契約数（累計）", m3: 3, m6: 8, m9: 15, m12: 22, unit: "社" },
+  { stage: "Tier 2 実装パッケージ 契約数（累計）", m3: 1, m6: 3, m9: 6, m12: 10, unit: "社" },
+  { stage: "Tier 3 事業変革コンサル 契約数（累計）", m3: 0, m6: 1, m9: 2, m12: 4, unit: "社" },
+  { stage: "Tier 4 M&A案件 着手数（累計）", m3: 0, m6: 0, m9: 1, m12: 2, unit: "件" },
+  { stage: "月次売上", m3: 280, m6: 700, m9: 1100, m12: 1600, unit: "万円" },
+  { stage: "累計売上", m3: 600, m6: 2200, m9: 5100, m12: 9500, unit: "万円" },
 ];

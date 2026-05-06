@@ -13,110 +13,121 @@ export type RoadmapPhase = {
 
 export const roadmapPhases: RoadmapPhase[] = [
   {
-    id: "p0",
-    phase: "Phase 0",
-    title: "2ヶ月売上スプリント",
-    period: "2026/04 - 2026/06",
-    startDate: "2026-04-25",
-    endDate: "2026-06-25",
-    product: "準委任 + 紹介（並行スタート）",
-    purpose: "初回売上確定（Target 230万円）",
-    investment: "免許あり → 追加許可不要、SaaS連携のみ",
-    color: "#ef4444",
-  },
-  {
     id: "p1",
     phase: "Phase 1",
-    title: "準委任先行＋紹介併走",
+    title: "研究会LTV最大化＋Tier 1ローンチ",
     period: "2026/05 - 2026/10",
     startDate: "2026-05-01",
     endDate: "2026-10-31",
-    product: "準委任による稼働支援＋紹介（免許済みを活用）",
-    purpose: "月次キャッシュ＋紹介高単価売上で粗利400万/月達成",
-    investment: "契約書ひな形、運用フロー、最低限マッチングUI",
-    color: "#f59e0b",
+    product: "Tier 0（既存研究会）+ Tier 1（経営者AI武装）",
+    purpose: "既存30社→継続率85%＋Tier 1へ20%遷移。月次売上300万到達",
+    investment: "Tier 1 LP・契約書・診断テンプレ作成。コーチング体制構築（白都・三山）",
+    color: "#E05B03",
   },
   {
     id: "p2",
     phase: "Phase 2",
-    title: "規模化・オペレーション強化",
+    title: "Tier 2/3 本格運用＋実装メンバー拡充",
     period: "2026/11 - 2027/04",
     startDate: "2026-11-01",
     endDate: "2027-04-30",
-    product: "準委任＋紹介を本格運用",
-    purpose: "月次粗利2,000万到達、独立プラットフォーム化判断",
-    investment: "CRM、ATS、独立サイト、ISMS取得検討",
-    color: "#3b82f6",
+    product: "Tier 2（建築AI実装）+ Tier 3（事業変革コンサル）",
+    purpose: "実装案件3-5件並走、月次売上1,000万到達。年商9,500万到達",
+    investment: "実装メンバー2-3名業務委託、CRM/ATS導入、補助金活用パッケージ整備",
+    color: "#F08C4A",
   },
   {
     id: "p3",
     phase: "Phase 3",
-    title: "派遣・プール化検討",
-    period: "2027/05 〜",
+    title: "M&A機能搭載＋業界リーディングポジ確立",
+    period: "2027/05 - 2028/04",
     startDate: "2027-05-01",
-    endDate: "2027-10-31",
-    product: "派遣/自社雇用プール（意思決定後）",
-    purpose: "高単価・継続収益・ブランド資産化",
-    investment: "派遣免許、雇用スキーム、財務余力",
-    color: "#8b5cf6",
+    endDate: "2028-04-30",
+    product: "Tier 4（M&A仲介・PMI）+ 全Tier継続運用",
+    purpose: "初年度M&A成約1-2件。年商2億円超 + 業界での『建築×AIといえばLIFEFUND』ポジション確立",
+    investment: "M&A仲介免許 or 提携アドバイザー契約、PMI実施チーム編成、登壇・寄稿の継続発信",
+    color: "#7c3aed",
   },
 ];
 
 export type MonthlyMilestone = {
-  yearMonth: string; // "2026-04"
+  yearMonth: string;
   label: string;
   deliverables: string[];
 };
 
 export const monthlyMilestones: MonthlyMilestone[] = [
   {
-    yearMonth: "2026-04",
-    label: "戦略たたき台提出",
-    deliverables: ["議事録レビュー", "戦略案たたき台 v0.1", "4/29 人数調査資料"],
-  },
-  {
     yearMonth: "2026-05",
-    label: "共有可能成果物＋契約書v1",
+    label: "Tier 1 ローンチ準備",
     deliverables: [
-      "5/7 or 5/16 共有可能成果物",
-      "コミュニティ供給調査の数値確定",
-      "既存30社ヒアリング完了",
-      "契約書ひな形 v1（中原→上田）",
+      "Tier 1（経営者AI武装）LP公開",
+      "契約書ひな形・診断シート作成",
+      "白都社長＋三山さんのコーチング設計書",
+      "研究会員30社へのアップセル案内",
     ],
   },
   {
     yearMonth: "2026-06",
-    label: "🎯 初回売上確定",
+    label: "🎯 Tier 1 初回受注",
     deliverables: [
-      "準委任β運用開始（2社・2-4名）",
-      "紹介1件成約",
-      "初回請求書発行（6月末締め）",
-      "AI面談PoC（内部5名）",
+      "Tier 1 契約 3社獲得（合計180万円）",
+      "Tier 2 提案書テンプレ作成",
+      "建築AI実装事例の動画化（10本）",
     ],
   },
   {
-    yearMonth: "2026-07",
-    label: "本格運用開始",
-    deliverables: ["7月稼働分フル稼働", "5社・10名目標", "紹介パイプライン5件"],
+    yearMonth: "2026-08",
+    label: "Tier 2 初回案件着手",
+    deliverables: [
+      "Tier 2 契約 1社獲得（300万円）",
+      "実装メンバー1名 業務委託契約",
+      "業務棚卸しメソッド v1.0 完成",
+    ],
   },
   {
-    yearMonth: "2026-09",
-    label: "Phase 1中盤",
-    deliverables: ["月次粗利200万目標", "稼働7名", "紹介累計2-3件"],
-  },
-  {
-    yearMonth: "2026-10",
-    label: "Phase 1終盤",
-    deliverables: ["月次粗利400万到達", "稼働10名", "紹介累計5件"],
+    yearMonth: "2026-11",
+    label: "Phase 2 突入",
+    deliverables: [
+      "Tier 2 累計3社受注（900万円）",
+      "Tier 3 提案書テンプレ作成",
+      "CRM・ATS導入完了",
+    ],
   },
   {
     yearMonth: "2027-01",
-    label: "Phase 2中盤",
-    deliverables: ["月次粗利1,000万", "稼働20名", "独立プラットフォーム判断"],
+    label: "Tier 3 初回受注",
+    deliverables: [
+      "Tier 3 契約 1社獲得（年960万円）",
+      "実装メンバー2名体制構築",
+      "補助金活用パッケージ提案実績10社",
+    ],
   },
   {
     yearMonth: "2027-04",
-    label: "Phase 2達成",
-    deliverables: ["月次粗利2,000万", "稼働40名", "紹介累計20件"],
+    label: "🎯 Phase 2 達成（年商9,500万）",
+    deliverables: [
+      "年商9,500万到達",
+      "Tier 2 累計10社、Tier 3 累計4社",
+      "M&A仲介機能の準備完了",
+    ],
+  },
+  {
+    yearMonth: "2027-09",
+    label: "Tier 4 初案件着手",
+    deliverables: [
+      "M&A戦略策定支援 1社着手",
+      "提携アドバイザー契約締結",
+      "建築業界 後継者問題リサーチレポート公開",
+    ],
+  },
+  {
+    yearMonth: "2028-04",
+    label: "🎯 Phase 3 達成（M&A成約・業界ポジション確立）",
+    deliverables: [
+      "M&A成約 1-2件達成",
+      "年商2億円超",
+      "建築×AI業界カンファレンス主催",
+    ],
   },
 ];

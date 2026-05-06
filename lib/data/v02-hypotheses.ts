@@ -1,4 +1,4 @@
-// §5 5仮説
+// 5仮説検証（建築AI経営研究会 アップセル戦略）
 export type Hypothesis = {
   id: string;
   letter: "A" | "B" | "C" | "D" | "E";
@@ -17,13 +17,13 @@ export const hypotheses: Hypothesis[] = [
   {
     id: "a",
     letter: "A",
-    title: "販路仮説",
-    content: "for Biz 実アクティブ顧客 50社をヒアリングすると、30%以上「すぐAI人材を借りたい」と返す",
-    rationale: "§3 市場データ（法人AI導入率33.9%上昇・人材339万人不足）/ for Biz顧客は『AIを学んだ』ステージにいる",
-    method: "for Biz 上位20社に1on1ヒアリング（20分スロット）、「AI人材必要」と返した社数を計測",
-    deadline: "2026-05-23",
-    cost: "自分の工数 × 20社×20分 = 7h",
-    learning: "True→GTM全走、False→ICPセグメント変更（人事セグメントやスタートアップへ軽鈍シフト）",
+    title: "アップセル意志仮説",
+    content: "既存研究会員（月4万円）の20-30%が、Tier 1（経営者AI武装・3ヶ月60万円）に進む意思がある",
+    rationale: "研究会で半年学んだ社長は『次は自社で動きたい』フェーズに入る／海外CxOプログラム平均価格は150-300万円なので60万円は手頃",
+    method: "既存30社のうち稼働中の上位10社に1on1ヒアリング（30分）、『60万のTier 1を提示したら検討するか』を計測",
+    deadline: "2026-05-31",
+    cost: "白都社長＋三山さんの工数 × 10社×30分 = 5h",
+    learning: "True→Tier 1ローンチ全速 / False→Tier 1価格を30万円に下げる or 月額20万円のサブスク型に変更",
     priority: "ultra",
     status: "pending",
   },
@@ -31,62 +31,62 @@ export const hypotheses: Hypothesis[] = [
     id: "b",
     letter: "B",
     title: "予算所在仮説",
-    content: "中堅企業のAI人材予算は、DX推進部より人事部のリスキリング予算・採用予算に多く出現する",
-    rationale: "中堅企業ではDX推進の独立予算は薄く、人事や事業部を通すケース多い",
-    method: "for Biz 5-10社で「AI人材購買予算はどこから出る予定か」をクエスチョン、DXと人事のどちらか集計",
-    deadline: "2026-05-16",
-    cost: "ヒアリングとセット",
-    learning: "DX主導→ペルソナ①集中 / 人事主導→ペルソナ②.5集中 / 両者→二重アプローチをPhase1から設計",
+    content: "建築業中堅企業のAI実装予算（300万円）は、DX予算ではなく『社長裁量の戦略投資枠』から出ることが多い",
+    rationale: "建築中小・中堅では独立DX部門は少なく、社長判断＋経理処理のケースが多い／補助金活用も視野",
+    method: "既存会員5社で『Tier 2 300万円の予算はどこから出すか』をヒアリング、補助金活用意向も併せて確認",
+    deadline: "2026-06-15",
+    cost: "ヒアリングと並行",
+    learning: "社長裁量→社長への直販強化 / 補助金主→補助金パッケージ化が必須 / 設備投資枠→工事部役員も商談関係者に",
     priority: "ultra",
     status: "pending",
   },
   {
     id: "c",
     letter: "C",
-    title: "単価仮説",
-    content: "中堅企業はミドル人材に月100-150万まで支払う意思がある",
-    rationale: "AIエンジニア市場平均90.6万/月 + マネジメントを考慮",
-    method: "5社と見積提案セッション、提示価格帯30-50-100-150-200万で「進める隷長」を計測",
-    deadline: "2026-05-30",
-    cost: "5社ヒアリング・提案",
-    learning: "True→ミドル単価100-150万で設計・PL計算見直し / False→ジュニア中心シフト or パッケージ化",
+    title: "M&Aニーズ仮説",
+    content: "建築業の社長の30%以上が、後継者問題 or 出口戦略として M&A の選択肢に潜在的関心を持つ",
+    rationale: "建築業の社長平均年齢60歳超、中小M&A件数は5年で2倍／業界再編の波",
+    method: "既存30社の社長への匿名アンケート（年齢・後継者・出口戦略）＋3社への深掘り面談",
+    deadline: "2026-12-31",
+    cost: "アンケート設計＋3社深掘り面談 = 10h",
+    learning: "True→Tier 4を Phase 2前倒しでローンチ / False→Tier 4は Phase 3に後ろ倒し or 撤退判断",
     priority: "high",
     status: "pending",
   },
   {
     id: "d",
     letter: "D",
-    title: "差別化仮説",
-    content: "高木氏作成ランク認定試験の提示は、レバテック比較で1/2以上の企業で「決め手」と評価される",
-    rationale: "スキル証明は中堅企業ペルソナ②の「見極めコスト」ペインを直接解消",
-    method: "A/B提案：同条件で「ランク説明あり」と「なし」を2ターゲット社ずつ、二次面談進捗率で比較",
-    deadline: "2026-06-13",
-    cost: "提案資料作成 + 4社ジャッジ",
-    learning: "True→認定試験をセットコアに / False→別の差別化（コミュニティやら会員チェック）探す",
-    priority: "medium",
+    title: "差別化仮説（建築特化の優位性）",
+    content: "建築業の社長は、汎用ITコンサルより『建築業界の事例＋AI実装』を持つLIFEFUNDを優先選好する",
+    rationale: "建築業の業務（積算・図面・施工管理）は専門性が高く、汎用コンサルでは現場理解に限界",
+    method: "Tier 2 提案商談で『建築特化型LIFEFUND』vs『汎用大手AIコンサル』の選好調査（5社で比較提案）",
+    deadline: "2026-08-31",
+    cost: "提案資料作成＋5社商談 = 15h",
+    learning: "True→建築特化を最強の差別化レバーとして発信強化 / False→技術力・実装力で勝負する別軸を探す",
+    priority: "high",
     status: "pending",
   },
   {
     id: "e",
     letter: "E",
-    title: "ハウスリスト仮説（もっとも重要度高い）",
-    content: "保有するDX推進多めハウスリスト 45,000件にアプローチしたとき、反応率 1% 以上、提案進捗率 20% 以上が取れる",
-    rationale: "DX推進者は「AI人材不足」トピックに反応しやすい / 社内リトチャス起点 / 一般コールドは0.1-0.3%だが、ターゲットフィットしたリストは0.5-1.5%期待",
-    method: "ステップ1：500件ピックアップしてABテストメール送信、開封・CTR・反応・アポ率1週間で判定 / ステップ2：反応あり企業と商談 → 提案進捗率",
-    deadline: "2026-05-30",
-    cost: "送信ツール費 / クリエイティブ / 自分の工数",
-    learning: "True→ハウスリストをPhase1主軸チャネル化、送信体制・オペレーションを設計 / False→コールド以外のチャネルを主にしハウスリストはサブ位置",
+    title: "コンテンツ流入仮説",
+    content: "月10本の建築×AI動画コンテンツが、月20件以上の新規リード（個別相談）を生む",
+    rationale: "建築業の経営者はYouTube・LinkedIn視聴率上昇中／AI関連検索ボリュームが業界横断で増加",
+    method: "3ヶ月（30本）配信後、YouTube/LP流入CV率を計測、リード数を確認",
+    deadline: "2026-09-30",
+    cost: "コンテンツ制作費 × 30本（橋本さん中心） = 既存運営工数",
+    learning: "True→コンテンツ制作体制を倍増、Tier 0入会の主軸チャネルへ / False→個別相談はパートナー紹介・登壇主軸に切替",
     priority: "ultra",
     status: "pending",
   },
 ];
 
-// §10 W1-W12 タスク（ガントチャート用）
+// W1-W12 タスク（ガントチャート用・Phase 1ローンチ）
 export type GanttTask = {
   id: string;
   week: string;
-  startWeek: number; // 1-12
-  endWeek: number; // 1-12
+  startWeek: number;
+  endWeek: number;
   title: string;
   owner: string;
   category: "creative" | "validation" | "legal" | "ops" | "sales" | "deploy";
@@ -94,40 +94,26 @@ export type GanttTask = {
 };
 
 export const ganttTasks: GanttTask[] = [
-  // W1-2 (4/29-5/9)
-  { id: "g1", week: "W1-2", startWeek: 1, endWeek: 2, title: "🔑 前任者ヒアリング（23問）", owner: "中川", category: "ops", isCritical: false },
-  { id: "g2", week: "W1-2", startWeek: 1, endWeek: 2, title: "⚡ HL用コールドメールAB作成", owner: "中川", category: "creative", isCritical: true },
-  { id: "g3", week: "W1-2", startWeek: 1, endWeek: 2, title: "ホスキルシートテンプレ作成", owner: "中川+北", category: "creative", isCritical: true },
-  { id: "g4", week: "W1-2", startWeek: 1, endWeek: 2, title: "トークスクリプト作成", owner: "中川", category: "creative", isCritical: true },
-  { id: "g5", week: "W1-2", startWeek: 1, endWeek: 2, title: "HL送信ツール選定", owner: "中川+伊田", category: "ops", isCritical: false },
-  { id: "g6", week: "W1-2", startWeek: 1, endWeek: 2, title: "ステークホルダー1on1（14名）", owner: "中川", category: "ops", isCritical: false },
-  { id: "g7", week: "W1-2", startWeek: 1, endWeek: 2, title: "個人情報規程・コンプラ規程審査スタート", owner: "中川+法務", category: "legal", isCritical: true },
-
-  // W3-4 (5/12-5/23)
-  { id: "g8", week: "W3-4", startWeek: 3, endWeek: 4, title: "🔬 仮説B検証（予算所在）", owner: "中川", category: "validation", isCritical: true },
-  { id: "g9", week: "W3-4", startWeek: 3, endWeek: 4, title: "🔬 仮説A検証（for Biz反応）", owner: "中川", category: "validation", isCritical: true },
-  { id: "g10", week: "W3-4", startWeek: 3, endWeek: 4, title: "🔬 仮説E検証（HL 500件AB配信）", owner: "中川", category: "validation", isCritical: true },
-  { id: "g11", week: "W3-4", startWeek: 3, endWeek: 4, title: "LP・提案書テンプレ作成", owner: "中川+伊田", category: "creative", isCritical: false },
-  { id: "g12", week: "W3-4", startWeek: 3, endWeek: 4, title: "契約書ひな形v1（準委任×紹介）", owner: "中原→上田", category: "legal", isCritical: true },
-  { id: "g13", week: "W3-4", startWeek: 3, endWeek: 4, title: "NDA・個人情報同意書テンプレ", owner: "法務", category: "legal", isCritical: true },
-
-  // W5-6 (5/26-6/6)
-  { id: "g14", week: "W5-6", startWeek: 5, endWeek: 6, title: "仮説E結果集計→GTM見直し", owner: "中川", category: "validation", isCritical: true },
-  { id: "g15", week: "W5-6", startWeek: 5, endWeek: 6, title: "🔬 仮説C検証（5社見積提案）", owner: "中川+北", category: "validation", isCritical: false },
-  { id: "g16", week: "W5-6", startWeek: 5, endWeek: 6, title: "HL本格送信（10,000件）", owner: "中川", category: "sales", isCritical: true },
-  { id: "g17", week: "W5-6", startWeek: 5, endWeek: 6, title: "初期商談15-20件実施", owner: "北", category: "sales", isCritical: true },
-  { id: "g18", week: "W5-6", startWeek: 5, endWeek: 6, title: "個人情報規程・送信体制明文化", owner: "中川+法務", category: "legal", isCritical: true },
-
-  // W7-8 (6/9-6/20)
-  { id: "g19", week: "W7-8", startWeek: 7, endWeek: 8, title: "🔬 仮説D検証（ランク説明AB）", owner: "中川", category: "validation", isCritical: false },
-  { id: "g20", week: "W7-8", startWeek: 7, endWeek: 8, title: "🎯 初回受注 2-3件", owner: "中川+北", category: "sales", isCritical: true },
-  { id: "g21", week: "W7-8", startWeek: 7, endWeek: 8, title: "6月中旬稼働開始", owner: "候補者+北", category: "ops", isCritical: true },
-  { id: "g22", week: "W7-8", startWeek: 7, endWeek: 8, title: "KPIダッシュボード稼働", owner: "中川", category: "ops", isCritical: false },
-
-  // W9-12 (6/23-7/18)
-  { id: "g23", week: "W9-12", startWeek: 9, endWeek: 12, title: "月次200万達成", owner: "中川+北", category: "sales", isCritical: true },
-  { id: "g24", week: "W9-12", startWeek: 9, endWeek: 12, title: "HLバッチ送信2週間サイクル", owner: "中川", category: "ops", isCritical: false },
-  { id: "g25", week: "W9-12", startWeek: 9, endWeek: 12, title: "職業紹介免許取得期待", owner: "重役+中川", category: "legal", isCritical: true },
-  { id: "g26", week: "W9-12", startWeek: 9, endWeek: 12, title: "改善ループABCDE週次レビュー", owner: "中川", category: "ops", isCritical: false },
-  { id: "g27", week: "W9-12", startWeek: 9, endWeek: 12, title: "月次レビュー（重役層）", owner: "中川+重役", category: "ops", isCritical: false },
+  // W1-2: 既存会員ヒアリング・Tier 1設計
+  { id: "g1", week: "W1-2", startWeek: 1, endWeek: 2, title: "🔬 仮説A検証（既存30社中10社へのヒアリング）", owner: "白都＋三山", category: "validation", isCritical: true },
+  { id: "g2", week: "W1-2", startWeek: 1, endWeek: 2, title: "Tier 1 LP・契約書ひな形作成", owner: "三山＋橋本", category: "creative", isCritical: true },
+  { id: "g3", week: "W1-2", startWeek: 1, endWeek: 2, title: "AI使いこなし診断シート設計", owner: "三山", category: "creative", isCritical: false },
+  { id: "g4", week: "W1-2", startWeek: 1, endWeek: 2, title: "コーチング設計書 v1.0", owner: "白都", category: "ops", isCritical: true },
+  // W3-4: ローンチ準備
+  { id: "g5", week: "W3-4", startWeek: 3, endWeek: 4, title: "🔬 仮説B検証（予算所在ヒアリング）", owner: "白都", category: "validation", isCritical: true },
+  { id: "g6", week: "W3-4", startWeek: 3, endWeek: 4, title: "Tier 1 提案資料・営業ピッチ作成", owner: "三山＋橋本", category: "creative", isCritical: true },
+  { id: "g7", week: "W3-4", startWeek: 3, endWeek: 4, title: "研究会月例会で Tier 1 アナウンス", owner: "白都", category: "sales", isCritical: true },
+  // W5-6: 初期受注
+  { id: "g8", week: "W5-6", startWeek: 5, endWeek: 6, title: "🎯 Tier 1 初回契約 3社", owner: "白都＋三山", category: "sales", isCritical: true },
+  { id: "g9", week: "W5-6", startWeek: 5, endWeek: 6, title: "🔬 仮説E検証（動画コンテンツ流入計測）", owner: "橋本", category: "validation", isCritical: false },
+  { id: "g10", week: "W5-6", startWeek: 5, endWeek: 6, title: "Tier 2 提案書テンプレ作成開始", owner: "三山", category: "creative", isCritical: false },
+  // W7-8: コーチング開始
+  { id: "g11", week: "W7-8", startWeek: 7, endWeek: 8, title: "Tier 1 月2回コーチング開始（3社）", owner: "白都＋三山", category: "ops", isCritical: true },
+  { id: "g12", week: "W7-8", startWeek: 7, endWeek: 8, title: "🔬 仮説D検証（建築特化の優位性検証商談）", owner: "三山", category: "validation", isCritical: false },
+  { id: "g13", week: "W7-8", startWeek: 7, endWeek: 8, title: "建築AI事例動画 累計20本到達", owner: "橋本", category: "creative", isCritical: false },
+  // W9-12: Tier 2 初動
+  { id: "g14", week: "W9-12", startWeek: 9, endWeek: 12, title: "🎯 Tier 2 初回案件契約（300万円・1社）", owner: "白都＋三山", category: "sales", isCritical: true },
+  { id: "g15", week: "W9-12", startWeek: 9, endWeek: 12, title: "実装メンバー候補プール 5名構築", owner: "三山", category: "ops", isCritical: true },
+  { id: "g16", week: "W9-12", startWeek: 9, endWeek: 12, title: "Tier 1 累計5社到達", owner: "白都＋三山", category: "sales", isCritical: false },
+  { id: "g17", week: "W9-12", startWeek: 9, endWeek: 12, title: "ABCDE仮説 週次レビュー", owner: "白都", category: "ops", isCritical: false },
 ];
